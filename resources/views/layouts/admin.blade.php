@@ -15,6 +15,9 @@
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
 
 
 
@@ -124,11 +127,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/users">All Users</a>
+                                <a href="{{route('users.index')}}">All Users</a>
                             </li>
 
                             <li>
-                                <a href="/users/create">Create User</a>
+                                <a href="{{route('users.create')}}">Create User</a>
                             </li>
 
                         </ul>
@@ -333,7 +336,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header"></h1>
-
+                @include('flash-message')
                 @yield('content')
             </div>
             <!-- /.col-lg-12 -->

@@ -24,4 +24,8 @@ class Post extends Model
         return $this->belongsToMany('App\Category');
     }
 
+    public function photos(){
+        return $this->morphedByMany('App\Photo', 'imageable');
+    }
+
 }

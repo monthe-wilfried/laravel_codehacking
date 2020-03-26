@@ -15,7 +15,7 @@ class AddIsActiveColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->integer('is_active')->defaullt(0);
+            $table->integer('is_active')->default(0);
         });
     }
 
