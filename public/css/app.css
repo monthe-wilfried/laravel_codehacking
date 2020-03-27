@@ -8345,7 +8345,16 @@ button.close {
 
 img.index-thumbnail {
   border-radius: 100px;
-  height: 30px;
-  width: 35px;
+  height: 40px;
+  width: 45px;
+  padding: 4px;
+  line-height: 1;
+  background-color: #f5f8fa;
+  border: 1px solid #ddd;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
 }
 

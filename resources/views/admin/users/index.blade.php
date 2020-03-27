@@ -24,8 +24,8 @@
             @foreach($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td><img class="index-thumbnail" src="{{$user->photo ? $user->photo->file : 'No user photo'}}"></td>
-                    <td>{{$user->name}}</td>
+                    <td><img class="index-thumbnail" src="{{$user->photo ? $user->photo->file : '/images/placeholder.png'}}"></td>
+                    <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role->name}}</td>
                     <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
