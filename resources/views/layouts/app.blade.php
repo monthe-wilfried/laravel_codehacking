@@ -31,6 +31,9 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                        <a class="navbar-brand" href="{{ url('/admin') }}">
+                            Admin Dashboard
+                        </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -48,6 +51,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

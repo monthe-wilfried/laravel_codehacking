@@ -142,10 +142,18 @@ class AdminUsersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
         //
+        $user = User::findOrFail($id);
+
+        unlink(public_path().$user->photo->file);
+
+        $user->delete();
+
+        return redirect()->route('users.index')
+            ->with('warning', 'User has been deleted successfully');
     }
 }
