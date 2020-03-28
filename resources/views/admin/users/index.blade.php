@@ -4,7 +4,7 @@
     <h1>List of users</h1>
     <hr>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">Id</th>

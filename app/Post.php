@@ -11,7 +11,7 @@ class Post extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'title', 'content'
+        'title', 'content', 'photo_id', 'user_id'
     ];
 
     protected $dates = ['deleted_at'];
@@ -24,8 +24,8 @@ class Post extends Model
         return $this->belongsToMany('App\Category');
     }
 
-    public function photos(){
-        return $this->morphedByMany('App\Photo', 'imageable');
+    public function photo(){
+        return $this->belongsTo('App\Photo', 'imageable');
     }
 
 }

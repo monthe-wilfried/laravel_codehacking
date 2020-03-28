@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     //
-    protected $uploads = '/images/';
+    protected $uploads_users = '/images/';
 
     protected $fillable = ['file'];
 
@@ -20,7 +20,8 @@ class Photo extends Model
      *
      */
     public function getFileAttribute($photo){
-        return $this->uploads.$photo;
+        return $this->uploads_users.$photo;
     }
+
 
 }
