@@ -47,10 +47,6 @@
         {!! Form::file('path', ['class'=> "form-control"]) !!}
     </div>
 
-    <div class="form-group">
-        {!! Form::hidden('user_id', $user_id, ['class'=> "form-control"]) !!}
-    </div>
-
 
     <div class="form-group">
         {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}

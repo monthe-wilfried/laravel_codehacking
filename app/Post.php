@@ -25,7 +25,7 @@ class Post extends Model
     }
 
     public function photo(){
-        return $this->belongsTo('App\Photo', 'imageable');
+        return $this->belongsTo('App\Photo');
     }
 
 }

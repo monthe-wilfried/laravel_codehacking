@@ -32,10 +32,9 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        $user_id = Auth::user()->id;
         $categories = Category::pluck('name', 'id')->all();
 
-        return view('admin.posts.create', compact('categories', 'user_id'));
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -49,6 +48,8 @@ class AdminPostsController extends Controller
         //
         $input = $request->except('category_id');
 
+        $user = Auth::user();
+
         if ($file = $request->file('path')){
 
             $name = time() . $file->getClientOriginalName();
@@ -61,7 +62,7 @@ class AdminPostsController extends Controller
 
         }
 
-        $post = Post::create($input);
+        $post = $user->posts()->create($input);
 
         $category_id = $request->category_id;
 
@@ -94,7 +95,9 @@ class AdminPostsController extends Controller
         //
         $post = Post::findOrFail($id);
 
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::pluck('name', 'id')->all();
+
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -102,21 +105,55 @@ class AdminPostsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
         //
+        $input = $request->except('category_id');
+
+        if ($file = $request->file('path')){
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+        Auth::user()->posts()->whereId($id)->first()->update($input);
+
+        $post = Post::findOrFail($id);
+
+        $category_id = $request->category_id;
+
+        $post->categories()->sync($category_id);
+
+        return redirect()->route('posts.index')->with('info', 'Post updated successfully');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+
+//        unlink(public_path().$post->photo->file);
+
+        $post->delete();
+
+        return redirect()->route('posts.index')
+            ->with('warning', 'Post delete successfully');
+
+
     }
 }

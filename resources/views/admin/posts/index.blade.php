@@ -21,15 +21,15 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{$post->id}}</td>
-                    <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
-                    <td>{{$post->content}}</td>
-                    <td><a href="{{route('users.edit', $post->user->id)}}">{{$post->user->name}}</a></td>
+                    <td><a href="">{{$post->title}}</a></td>
+                    <td>{{str_limit($post->content, 100)}}</td>
+                    <td><a href="{{route('posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                     <td>
                         @foreach($post->categories as $category)
                             <a href="">{{$category->name}}</a>
-                            @if(count($post->categories)>1)
-                                {{'|'}}
-                            @endif
+{{--                            @if(count($post->categories)>1)--}}
+{{--                                {{'|'}}--}}
+{{--                            @endif--}}
                         @endforeach
                     </td>
                   <td>{{$post->created_at->diffForhumans()}}</td>
