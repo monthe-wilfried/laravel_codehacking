@@ -8358,3 +8358,11 @@ img.index-thumbnail {
   height: auto;
 }
 
+.btn-add {
+  border-radius: 30px !important;
+}
+
+.add-category {
+  margin-top: 50px;
+}
+

@@ -26,7 +26,7 @@
                     <td><a href="{{route('posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                     <td>
                         @foreach($post->categories as $category)
-                            <a href="">{{$category->name}}</a>
+                            <a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a>
 {{--                            @if(count($post->categories)>1)--}}
 {{--                                {{'|'}}--}}
 {{--                            @endif--}}
