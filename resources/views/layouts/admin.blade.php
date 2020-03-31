@@ -63,16 +63,16 @@
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="#"><i class="fas fa-user"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="#"><i class="fas fa-users-cog"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            Logout <i class="fa fa-sign-out fa-fw"></i>
+                            Logout <i class="fas fa-sign-out-alt"></i>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -132,18 +132,18 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="/admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('users.index')}}">All Users</a>
+                                <a href="{{route('users.index')}}"><i class="fas fa-user-friends"></i> All Users</a>
                             </li>
 
                             <li>
-                                <a href="">Create User</a>
+                                <a href="{{route('users.create')}}"><i class="fas fa-user-plus"></i> Create User</a>
                             </li>
 
                         </ul>
@@ -151,30 +151,22 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fas fa-file-alt"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('posts.index')}}">All Posts</a>
+                                <a href="{{route('posts.index')}}"><i class="fas fa-file-alt"></i> All Posts</a>
                             </li>
 
                             <li>
-                                <a href="{{route('posts.create')}}">Create Post</a>
-                            </li>
-
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('categories.index')}}">All Categories</a>
+                                <a href="{{route('posts.create')}}"><i class="fas fa-edit"></i> Create Post</a>
                             </li>
 
                             <li>
-                                <a href="{{'categories.create'}}">Create Category</a>
+                                <a href="{{route('comments.index')}}"><i class="fas fa-comments"></i> All Comments</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('replies.index')}}"><i class="fas fa-reply-all"></i> All Replies</a>
                             </li>
 
                         </ul>
@@ -183,14 +175,30 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fas fa-th-large"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('media.index')}}">All Media</a>
+                                <a href="{{route('categories.index')}}"><i class="fas fa-th"></i> All Categories</a>
                             </li>
 
                             <li>
-                                <a href="{{route('media.create')}}">Upload Media</a>
+                                <a href="{{'categories.create'}}"><i class="fas fa-plus-circle"></i> Create Category</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+
+                    <li>
+                        <a href="#"><i class="fas fa-image"></i> Media<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{route('media.index')}}"><i class="fas fa-image"></i> All Media</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('media.create')}}"><i class="fa fa-upload fa-fw"></i> Upload Media</a>
                             </li>
 
                         </ul>

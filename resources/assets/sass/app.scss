@@ -5,8 +5,12 @@
 // Variables
 @import "variables";
 
+$fa-font-path: "../webfonts";
+
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
 #admin-page {
   padding-top:0;
@@ -39,5 +43,9 @@ img.index-thumbnail {
 
 .add-category{
   margin-top: 50px;
+}
+
+.modal-content{
+  margin-top: 70% !important;
 }
 
