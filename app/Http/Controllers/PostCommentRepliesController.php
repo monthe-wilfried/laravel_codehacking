@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\CommentReply;
+use App\Http\Requests\CommentRepliesRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostCommentRepliesController extends Controller
 {
@@ -14,7 +18,9 @@ class PostCommentRepliesController extends Controller
     public function index()
     {
         //
-        return view('admin.comments.replies.index');
+        $replies = CommentReply::all();
+
+        return view('admin.comments.replies.index', compact('replies'));
     }
 
     /**
@@ -31,11 +37,31 @@ class PostCommentRepliesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function store(Request $request)
     {
         //
+
+    }
+
+    public function createReply(CommentRepliesRequest $request)
+    {
+        //
+        $user = Auth::user();
+
+        $data = [
+            'comment_id' => $request->comment_id,
+            'author' => $user->name,
+            'email' => $user->email,
+            'body' => $request->reply,
+            'photo' => $user->photo->file
+        ];
+
+        CommentReply::create($data);
+
+        return redirect()->back()->with('success', 'Reply posted!');
+
     }
 
     /**
@@ -76,10 +102,14 @@ class PostCommentRepliesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
         //
+        CommentReply::whereId($id)->delete();
+
+        return redirect()->back()->with('success', 'Reply deleted successfully!');
+
     }
 }

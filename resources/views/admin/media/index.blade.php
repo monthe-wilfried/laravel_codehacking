@@ -7,6 +7,8 @@
 
     @if($photos)
 
+        <form action="/dele" method="post"></form>
+
         <table class="table table-striped">
             <thead>
             <tr>

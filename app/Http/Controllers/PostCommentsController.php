@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Comment;
 use App\Http\Requests\PostCommentsRequest;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,18 +55,23 @@ class PostCommentsController extends Controller
 
         Comment::create($data);
 
-        return redirect()->back()->with('success', 'Comment posted!');
+        return redirect()->back()->with('success', 'Comment posted and waiting for moderation!');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        $comments = $post->comments;
+
+        return view('admin.comments.show', compact('comments'));
     }
 
     /**
@@ -117,10 +123,13 @@ class PostCommentsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
         //
+        Comment::whereId($id)->delete();
+
+        return redirect()->back()->with('success', 'Comment deleted successfully');
     }
 }

@@ -27,33 +27,33 @@
                     <td><a href="">{{$comment->author}}</a></td>
                     <td>{{$comment->email}}</td>
                     <td>
-{{--                        approve/unapprove button--}}
+                        {{--                        approve/unapprove button--}}
                         @if($comment->is_active == 1)
 
                             {!! Form::open(['method'=>'PUT', 'action'=>['PostCommentsController@update', $comment->id]])  !!}
 
                             {!! Form::hidden('is_active', 0) !!}
 
-{{--                            <div class="form-group">--}}
-{{--                                <input type="checkbox" name="is_active" checked data-toggle="toggle">--}}
-{{--                            </div>--}}
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <input type="checkbox" name="is_active" checked data-toggle="toggle">--}}
+                            {{--                            </div>--}}
 
                             <div class="form-group">
-                                    {!! Form::submit('On', ['class'=>'btn btn-success']) !!}
+                                {!! Form::submit('On', ['class'=>'btn btn-success']) !!}
                             </div>
 
 
                             {!! Form::close() !!}
 
-                            @else
+                        @else
 
                             {!! Form::open(['method'=>'PUT', 'action'=>['PostCommentsController@update', $comment->id]])  !!}
 
                             {!! Form::hidden('is_active', 1) !!}
 
-{{--                            <div class="form-group">--}}
-{{--                                <input type="checkbox" name="is_active" data-toggle="toggle">--}}
-{{--                            </div>--}}
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <input type="checkbox" name="is_active" data-toggle="toggle">--}}
+                            {{--                            </div>--}}
 
                             <div class="form-group">
                                 {!! Form::submit('Off', ['class'=>'btn btn-warning']) !!}
@@ -67,13 +67,17 @@
 
                         {!! Form::open(['method'=>'DELETE', 'action'=>['PostCommentsController@destroy', $comment->id]]) !!}
 
-                                    {!! Form::submit('Delete Comment', ['class'=>'btn btn-danger']) !!}
+                        {!! Form::submit('Delete User', ['class'=>'btn btn-danger']) !!}
 
                         {!! Form::close() !!}
 
                     </td>
                 </tr>
             @endforeach
+
+        @else
+
+
         @endif
 
         </tbody>

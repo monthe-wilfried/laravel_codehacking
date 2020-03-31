@@ -15,119 +15,35 @@
     <!-- Post Content -->
     <p class="lead">{{$post->content}}</p>
 
-    <!-- Date/Time -->
-    <p><i class="fas fa-history"></i> Posted {{$post->created_at ? $post->created_at->diffForHumans() : 'No date available'}}
-        by <a href="">{{$post->user->name}}</a>
-    </p>
-    <hr>
 
-    <!-- Blog Comments -->
+    <!-- Disqus comment plugin -->
 
-    <!-- Comments Form -->
-    @if(Auth::user())
-        <div class="well">
-            @include('flash-message')
+    <div id="disqus_thread"></div>
+    <script>
 
-            <h4>Leave a Comment:</h4>
-            {!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store'])  !!}
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://codehacking-be6an3ihij.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-            <div class="form-group">
-                {!! Form::hidden('post_id', $post->id, ['class'=>'form-control']) !!}
-            </div>
 
-            <div class="form-group">
-                {!! Form::textarea('body', null, ['placeholder'=>'Enter your comment...', 'class'=> "form-control {{ $errors->has('body') ? ' has-error' : '' }}", 'rows'=>3]) !!}
-
-                @if ($errors->has('body'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('body') }}</strong>
-                    </span>
-                @endif
-            </div>
-
-            <div class="form-group">
-                {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
-            </div>
-
-            {!! Form::close() !!}
-
-        </div>
-
-        <hr>
-
-        <!-- Posted Comments -->
-
-        <!-- Comment -->
-        <div class="well">
-            <div class="media">
-                @foreach($post->comments as $comment)
-                    <br>
-                    <a class="pull-left" href="#">
-                        <img class="index-thumbnail" src="{{$comment->photo ? $comment->photo : '/images/placeholder.png'}}">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            <small><a href="">{{$comment->author}}</a> posted {{$comment->created_at->diffForHumans()}}</small>
-                        </h4>
-                        {{$comment->body}}
-                        @if(Auth::user()->name == $comment->author)
-
-                            <!-- Edit Button -->
-                            <div class="pull-right">
-
-                                <!-- Button trigger modal -->
-                                <a href="" class="btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
-                                    Edit
-                                </a>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Edit comment</h4>
-                                            </div>
-                                            <div class="modal-body">
-
-                                                    {!! Form::model($comment, ['method'=>'PUT', 'action'=>['PostCommentsController@edit', $comment->id]])  !!}
-
-                                                    <div class="form-group">
-                                                        {!! Form::hidden('post_id', $post->id, ['class'=>'form-control']) !!}
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        {!! Form::textarea('body', null, ['class'=> "form-control {{ $errors->has('body') ? ' has-error' : '' }}", 'rows'=>3]) !!}
-
-                                                        @if ($errors->has('body'))
-                                                            <span class="help-block">
-                                                                <strong>{{ $errors->first('body') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                {!! Form::submit('Save changes', ['type'=>'button', 'class'=>'btn btn-primary']) !!}
-                                            </div>
-
-                                            {!! Form::close() !!}
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
 
 @endsection
+
+
 
 @section('categories')
 

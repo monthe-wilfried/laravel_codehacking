@@ -14,6 +14,7 @@
             <th scope="col">Category</th>
             <th scope="col">Created</th>
             <th scope="col">Updated</th>
+            <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,9 @@
                     </td>
                   <td>{{$post->created_at->diffForhumans()}}</td>
                     <td>{{$post->updated_at->diffForhumans()}}</td>
+                    <td>
+                        <a class="btn btn-default" href="{{route('comments.show', $post->id)}}">View Comments</a>
+                    </td>
                 </tr>
             @endforeach
         @endif

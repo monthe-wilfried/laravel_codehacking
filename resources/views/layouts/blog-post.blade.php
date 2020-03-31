@@ -106,7 +106,7 @@
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+                <p>Copyright &copy; Your Website 2020</p>
             </div>
         </div>
         <!-- /.row -->
@@ -117,7 +117,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
-
+<script id="dsq-count-scr" src="//codehacking-be6an3ihij.disqus.com/count.js" async></script>
 </body>
 
 </html>
