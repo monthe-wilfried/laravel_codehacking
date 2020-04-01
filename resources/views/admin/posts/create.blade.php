@@ -1,8 +1,11 @@
 @extends('layouts.admin')
 
+
 @section('content')
     <h1>Create Posts</h1>
     <hr>
+
+    @include('includes.editor')
 
     {!! Form::open(['method'=>'POST', 'action'=>'AdminPostsController@store', 'files'=>'true'])  !!}
 

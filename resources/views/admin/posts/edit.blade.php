@@ -4,6 +4,8 @@
     <h1>Edit Post</h1>
     <hr>
 
+    @include('includes.editor')
+
     {!! Form::model($post, ['method'=>'PATCH', 'action'=>['AdminPostsController@update', $post->id], 'files'=>'true'])  !!}
 
     <div class="col-sm-3">

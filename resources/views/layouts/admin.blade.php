@@ -377,11 +377,6 @@
 @yield('scripts')
 
 
-@yield('footer')
-
-
-
-
 
 </body>
 
