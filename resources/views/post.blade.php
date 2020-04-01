@@ -8,12 +8,12 @@
     <h1>{{$post->title}}</h1>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : public_path().'placeholder.png'}}" alt="">
+    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $post->placeholder()}}" alt="">
 
     <hr>
 
     <!-- Post Content -->
-    <p class="lead">{{$post->content}}</p>
+    <p class="lead">{!! $post->content !!}</p>
 
 
     <!-- Disqus comment plugin -->

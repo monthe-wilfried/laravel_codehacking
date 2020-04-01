@@ -39,6 +39,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Photo');
     }
 
+    public function placeholder(){
+        return '/images/placeholder.png';
+    }
+
 
     public function isAdmin(){
 
@@ -57,5 +61,7 @@ class User extends Authenticatable
     public function getNameAttribute($value){
         return ucfirst($value);
     }
+
+
 
 }

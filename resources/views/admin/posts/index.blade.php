@@ -22,7 +22,7 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{$post->id}}</td>
-                    <td><a href="{{route('home.post', $post->id)}}">{{$post->title}}</a></td>
+                    <td><a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a></td>
                     <td>{{str_limit($post->content, 100)}}</td>
                     <td><a href="{{route('posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                     <td>

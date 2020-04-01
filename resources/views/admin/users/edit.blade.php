@@ -5,7 +5,7 @@
     <hr>
 
     <div class="col-sm-3">
-        <img src="{{$user->photo ? $user->photo->file : '/images/placeholder.png'}}" alt="" class="img-responsive img-rounded">
+        <img src="{{$user->photo ? $user->photo->file : $user->placeholder()}}" alt="" class="img-responsive img-rounded">
     </div>
 
     <div class="col-sm-9">

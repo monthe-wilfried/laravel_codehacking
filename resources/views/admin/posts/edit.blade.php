@@ -7,7 +7,7 @@
     {!! Form::model($post, ['method'=>'PATCH', 'action'=>['AdminPostsController@update', $post->id], 'files'=>'true'])  !!}
 
     <div class="col-sm-3">
-        <img src="{{$post->photo ? $post->photo->file : '/images/placeholder.png'}}" class="img-responsive img-thumbnail">
+        <img src="{{$post->photo ? $post->photo->file : $post->placeholder()}}" class="img-responsive img-thumbnail">
     </div>
 
     <div class="col-sm-9">
