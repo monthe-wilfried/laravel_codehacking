@@ -58,7 +58,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    <img src="{{Auth::user()->photo ? Auth::user()->photo->file : ''}}" class="index-thumbnail">
+                    <img src="{{Auth::user()->photo ? Auth::user()->photo->file : Auth::user()->gravatar}}" class="index-thumbnail">
                     Hi, {{Auth::user()->name}}
                     <i class="fa fa-caret-down"></i>
                 </a>

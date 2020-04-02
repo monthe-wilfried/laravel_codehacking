@@ -13,6 +13,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Body</th>
+            <th scope="col">Photo</th>
             <th scope="col">Author</th>
             <th scope="col">Email</th>
             <th scope="col">Status</th>
@@ -23,7 +24,8 @@
             @foreach($comments as $comment)
                 <tr>
                     <td>{{$comment->id}}</td>
-                    <td><a href="{{route('home.post', $comment->post->id)}}">{{$comment->body}}</a></td>
+                    <td><a href="{{route('home.post', $comment->post->slug)}}">{{$comment->body}}</a></td>
+                    <td><img class="index-thumbnail" src="{{Auth::user()->gravatar}}" alt=""></td>
                     <td><a href="">{{$comment->author}}</a></td>
                     <td>{{$comment->email}}</td>
                     <td>
