@@ -24,10 +24,10 @@
                     <td>{{$post->id}}</td>
                     <td><a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a></td>
                     <td>{{str_limit($post->content, 100)}}</td>
-                    <td><a href="{{route('posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
+                    <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                     <td>
                         @foreach($post->categories as $category)
-                            <a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a>
+                            <a href="{{route('admin.categories.edit', $category->id)}}">{{$category->name}}</a>
 {{--                            @if(count($post->categories)>1)--}}
 {{--                                {{'|'}}--}}
 {{--                            @endif--}}
@@ -36,7 +36,7 @@
                   <td>{{$post->created_at->diffForhumans()}}</td>
                     <td>{{$post->updated_at->diffForhumans()}}</td>
                     <td>
-                        <a class="btn btn-default" href="{{route('comments.show', $post->id)}}">View Comments</a>
+                        <a class="btn btn-default" href="{{route('admin.comments.show', $post->id)}}">View Comments</a>
                     </td>
                 </tr>
             @endforeach

@@ -139,11 +139,11 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('users.index')}}"><i class="fas fa-user-friends"></i> All Users</a>
+                                <a href="{{route('admin.users.index')}}"><i class="fas fa-user-friends"></i> All Users</a>
                             </li>
 
                             <li>
-                                <a href="{{route('users.create')}}"><i class="fas fa-user-plus"></i> Create User</a>
+                                <a href="{{route('admin.users.create')}}"><i class="fas fa-user-plus"></i> Create User</a>
                             </li>
 
                         </ul>
@@ -154,19 +154,19 @@
                         <a href="#"><i class="fas fa-file-alt"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('posts.index')}}"><i class="fas fa-file-alt"></i> All Posts</a>
+                                <a href="{{route('admin.posts.index')}}"><i class="fas fa-file-alt"></i> All Posts</a>
                             </li>
 
                             <li>
-                                <a href="{{route('posts.create')}}"><i class="fas fa-edit"></i> Create Post</a>
+                                <a href="{{route('admin.posts.create')}}"><i class="fas fa-edit"></i> Create Post</a>
                             </li>
 
                             <li>
-                                <a href="{{route('comments.index')}}"><i class="fas fa-comments"></i> All Comments</a>
+                                <a href="{{route('admin.comments.index')}}"><i class="fas fa-comments"></i> All Comments</a>
                             </li>
 
                             <li>
-                                <a href="{{route('replies.index')}}"><i class="fas fa-reply-all"></i> All Replies</a>
+                                <a href="{{route('admin.replies.index')}}"><i class="fas fa-reply-all"></i> All Replies</a>
                             </li>
 
                         </ul>
@@ -178,11 +178,7 @@
                         <a href="#"><i class="fas fa-th-large"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('categories.index')}}"><i class="fas fa-th"></i> All Categories</a>
-                            </li>
-
-                            <li>
-                                <a href="{{'categories.create'}}"><i class="fas fa-plus-circle"></i> Create Category</a>
+                                <a href="{{route('admin.categories.index')}}"><i class="fas fa-th"></i> All Categories</a>
                             </li>
 
                         </ul>
@@ -194,11 +190,11 @@
                         <a href="#"><i class="fas fa-image"></i> Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('media.index')}}"><i class="fas fa-image"></i> All Media</a>
+                                <a href="{{route('admin.media.index')}}"><i class="fas fa-image"></i> All Media</a>
                             </li>
 
                             <li>
-                                <a href="{{route('media.create')}}"><i class="fa fa-upload fa-fw"></i> Upload Media</a>
+                                <a href="{{route('admin.media.create')}}"><i class="fa fa-upload fa-fw"></i> Upload Media</a>
                             </li>
 
                         </ul>
@@ -356,8 +352,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header"></h1>
+
                 @include('flash-message')
                 @yield('content')
+
             </div>
             <!-- /.col-lg-12 -->
         </div>

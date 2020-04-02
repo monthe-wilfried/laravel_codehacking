@@ -43,7 +43,7 @@ class AdminCategoriesController extends Controller
         $input = $request->all();
         Category::create($input);
 
-        return redirect()->route('categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('success', 'Category created successfully');
 
     }
@@ -87,7 +87,7 @@ class AdminCategoriesController extends Controller
 
         Category::findOrFail($id)->update($input);
 
-        return redirect()->route('categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('info', 'Category updated successfully');
     }
 
@@ -102,7 +102,7 @@ class AdminCategoriesController extends Controller
         //
         Category::whereId($id)->delete();
 
-        return redirect()->route('categories.index')
+        return redirect()->route('admin.categories.index')
         ->with('warning', 'Category deleted successfully');
     }
 }

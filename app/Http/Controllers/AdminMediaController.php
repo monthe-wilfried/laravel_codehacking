@@ -101,7 +101,22 @@ class AdminMediaController extends Controller
 
         $photo->delete();
 
-        return redirect()->route('media.index')
+        return redirect()->route('admin.media.index')
             ->with('warning', 'Media deleted successfully');
     }
+
+    public function deleteMedia(Request $request){
+        //
+        $photos = Photo::findOrFail($request->checkBoxArray);
+
+        foreach ($photos as $photo){
+
+            $photo->delete();
+            unlink(public_path().$photo->file);
+        }
+
+        return redirect()->back()->with('success', 'Deleted successfully');
+    }
+
+
 }

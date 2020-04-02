@@ -68,7 +68,7 @@ class AdminPostsController extends Controller
 
         $post->categories()->sync($category_id);
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully');
+        return redirect()->route('admin.posts.index')->with('success', 'Post created successfully');
 
 
     }
@@ -132,7 +132,7 @@ class AdminPostsController extends Controller
 
         $post->categories()->sync($category_id);
 
-        return redirect()->route('posts.index')->with('info', 'Post updated successfully');
+        return redirect()->route('admin.posts.index')->with('info', 'Post updated successfully');
 
     }
 
@@ -151,7 +151,7 @@ class AdminPostsController extends Controller
 
         $post->delete();
 
-        return redirect()->route('posts.index')
+        return redirect()->route('admin.posts.index')
             ->with('warning', 'Post delete successfully');
 
 

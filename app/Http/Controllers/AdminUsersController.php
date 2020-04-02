@@ -65,7 +65,7 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->with('success', 'User has been created successfully');
 
 
@@ -134,7 +134,7 @@ class AdminUsersController extends Controller
 
         User::findOrFail($id)->update($input);
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->with('info', 'User updated successfully');
     }
 
@@ -153,7 +153,7 @@ class AdminUsersController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->with('warning', 'User has been deleted successfully');
     }
 }

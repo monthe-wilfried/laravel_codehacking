@@ -25,6 +25,7 @@
         {!! Form::label('content', 'Content:') !!}
         {!! Form::textarea('content', null, ['class'=> "form-control {{ $errors->has('content') ? ' has-error' : '' }}", 'placeholder'=>'Enter your post content here...']) !!}
 
+
         @if ($errors->has('content'))
             <span class="help-block">
                     <strong>{{ $errors->first('content') }}</strong>
