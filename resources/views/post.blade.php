@@ -6,6 +6,11 @@
 
     <!-- Title -->
     <h1>{{$post->title}}</h1>
+    <!-- Date/Time -->
+
+    <p><span class="glyphicon glyphicon-time"></span> Posted  by <a href="#">{{$post->user->name}} </a> {{$post->created_at->diffForHumans()}}</p>
+
+
 
     <!-- Preview Image -->
     <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $post->placeholder()}}" alt="">
@@ -14,7 +19,7 @@
 
     <!-- Post Content -->
     <p class="lead">{!! $post->content !!}</p>
-
+    <hr>
 
     <!-- Disqus comment plugin -->
 

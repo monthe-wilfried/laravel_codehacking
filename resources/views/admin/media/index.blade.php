@@ -7,8 +7,7 @@
 
     @if($photos)
 
-        <form action="delete/media" method="post" class="form-inline">
-
+        {{ Form::open(['method'=>'DELETE', 'action'=>'AdminMediaController@deleteMedia', 'class'=>'form-inline']) }}
 
             <div class="form-group">
                 <select name="checkBoxArray" id="">
@@ -50,7 +49,15 @@
                 @endif
                 </tbody>
             </table>
-        </form>
+        {{ Form::close() }}
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-5">
+                {{--            {{$posts->links()}}--}}
+                {{$photos->render()}}
+            </div>
+        </div>
+
     @endif
 @endsection
 
