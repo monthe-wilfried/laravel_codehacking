@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,10 +21,13 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return view('home');
+        //
+        $posts = Post::simplePaginate(2);
+        $categories = Category::all();
+        return view('front.home', compact('categories', 'posts'));
     }
 }

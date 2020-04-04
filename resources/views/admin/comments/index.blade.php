@@ -24,7 +24,7 @@
             @foreach($comments as $comment)
                 <tr>
                     <td>{{$comment->id}}</td>
-                    <td><a href="{{route('home.post', $comment->post->slug)}}">{{$comment->body}}</a></td>
+                    <td>{{$comment->body}}</td>
                     <td><img class="index-thumbnail" src="{{Auth::user()->gravatar}}" alt=""></td>
                     <td><a href="">{{$comment->author}}</a></td>
                     <td>{{$comment->email}}</td>

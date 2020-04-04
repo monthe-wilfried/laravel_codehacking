@@ -9,11 +9,11 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Title</th>
-            <th scope="col">Content</th>
             <th scope="col">Owner</th>
             <th scope="col">Category</th>
             <th scope="col">Created</th>
             <th scope="col">Updated</th>
+            <th scope="col"></th>
             <th scope="col"></th>
         </tr>
       </thead>
@@ -22,12 +22,11 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{$post->id}}</td>
-                    <td><a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a></td>
-                    <td>{{str_limit($post->content, 100)}}</td>
-                    <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
+                    <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</a></td>
+                    <td>{{$post->user->name}}</td>
                     <td>
                         @foreach($post->categories as $category)
-                            <a href="{{route('admin.categories.edit', $category->id)}}">{{$category->name}}</a>
+                            {{$category->name ? $category->name : 'Uncategorized'}}
 {{--                            @if(count($post->categories)>1)--}}
 {{--                                {{'|'}}--}}
 {{--                            @endif--}}
@@ -35,6 +34,9 @@
                     </td>
                   <td>{{$post->created_at->diffForhumans()}}</td>
                     <td>{{$post->updated_at->diffForhumans()}}</td>
+                    <td>
+                        <a class="btn btn-default" href="{{route('home.post', $post->slug)}}">View Post</a>
+                    </td>
                     <td>
                         <a class="btn btn-default" href="{{route('admin.comments.show', $post->id)}}">View Comments</a>
                     </td>
