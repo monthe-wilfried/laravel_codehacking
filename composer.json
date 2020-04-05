@@ -7,10 +7,10 @@
     "require": {
         "php": ">=7.1.3",
         "cviebrock/eloquent-sluggable": "6.0.*",
-        "laravel/framework": "6.0.*",
+        "laravel/framework": "6.0.0.*",
+        "laravel/helpers": "^1.2",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "*",
-        "unisharp/laravel-ckeditor": "^4.7",
         "unisharp/laravel-filemanager": "^2.0"
     },
     "require-dev": {
